@@ -325,6 +325,7 @@
    @media (max-width: 1024px) {
      .portfolio-grid { grid-template-columns: 1fr; }
      .modal-content { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
+     .page-title { font-size: clamp(2rem, 8vw, 5rem); }
    }
    
    @media (max-width: 768px) {
@@ -334,7 +335,9 @@
      .modal-overlay { padding: 1rem; align-items: flex-end; }
      .modal-content { padding: 1.5rem; border-radius: 2px 2px 0 0; }
      .modal-image img { height: 180px; }
+     .page-title { font-size: clamp(2rem, 8vw, 5rem); }
    }
+
    
    /* Scroll animations */
    .portfolio-item, .modal-content { will-change: transform, opacity; }

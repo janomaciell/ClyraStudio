@@ -254,10 +254,18 @@
      .member-image { height: 200px; }
      .values-grid { grid-template-columns: 1fr; gap: 2.5rem; }
      .values-header { margin-bottom: 3rem; }
+     .values-main-title { font-size: clamp(2rem, 8vw, 4rem); }  
+     .values-sub-title { font-size: clamp(1rem, 8vw, 3rem); }
    }
    
    @media (max-width: 480px) {
      .team-grid { grid-template-columns: 1fr; }
      .member-image { height: 240px; }
      .floating-element { display: none; }
+     .values-main-title { font-size: clamp(2rem, 8vw, 4rem); }  
+     .values-sub-title { font-size: clamp(1rem, 8vw, 3rem); }
+   }
+   @media (max-width: 320px) {
+     .values-main-title { font-size: clamp(2rem, 8vw, 3rem); }  
+     .values-sub-title { font-size: clamp(1rem, 8vw, 2rem); }
    }
