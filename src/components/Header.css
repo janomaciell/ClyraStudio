@@ -1,122 +1,232 @@
-/* Estilos base del header */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: #000;
-  padding: 1rem 0;
-}
+/* =============================================
+   CLYRA STUDIO — Header.css
+   ============================================= */
 
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
-/* Estilos del logo */
-.logo {
-  flex-shrink: 0;
-}
-
-.logo-image {
-  height: 40px;
-  width: auto;
-}
-
-/* Estilos de navegación */
-.nav {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-/* Estilos del botón hamburguesa */
-.burger {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 100;
-}
-
-.burger span {
-  display: block;
-  width: 25px;
-  height: 2px;
-  background-color: #fff;
-  margin: 5px 0;
-  transition: all 0.3s ease;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .header-container {
-    padding: 0 1rem;
-  }
-
-  .burger {
-    display: block;
-  }
-
-  .nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100vh;
-    background: #000;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    padding: 2rem;
-  }
-
-  .nav.open {
-    right: 0;
-  }
-
-  /* Animación del botón hamburguesa */
-  .burger.open span:first-child {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .burger.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .burger.open span:last-child {
-    transform: rotate(-45deg) translate(7px, -6px);
-  }
-
-  /* Enlaces de navegación en móvil */
-  .nav a {
-    color: #fff;
-    font-size: 1.2rem;
-    margin: 1rem 0;
-  }
-
-  /* Asegurar que el logo y el botón hamburguesa estén alineados correctamente */
-  .logo {
-    position: relative;
-    z-index: 100;
-  }
-}
-
-/* Estilos adicionales para los enlaces */
-.nav a {
-  text-decoration: none;
-  color: #fff;
-  transition: color 0.3s ease;
-}
-
-.nav a:hover,
-.nav a.active {
-  color: #EFD897;
-}
+   :root {
+     --black: #080808;
+     --white: #F2F2F0;
+     --white-muted: #999999;
+     --accent: #00F5D4;
+     --font-display: 'Syne', sans-serif;
+     --font-body: 'DM Sans', sans-serif;
+   }
+   
+   .header {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     z-index: 1000;
+     background: rgba(8, 8, 8, 0.92);
+     backdrop-filter: blur(12px);
+     -webkit-backdrop-filter: blur(12px);
+     border-bottom: 1px solid transparent;
+     padding: 1.25rem 0;
+     transition: border-color 0.3s ease, padding 0.3s ease;
+   }
+   
+   .header.scrolled {
+     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+     padding: 0.9rem 0;
+   }
+   
+   .header-container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 2rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   
+   /* =============================================
+      LOGO
+      ============================================= */
+   .logo { flex-shrink: 0; }
+   
+   .logo-link {
+     text-decoration: none;
+     display: flex;
+     align-items: baseline;
+     gap: 1px;
+   }
+   
+   .logo-clyra {
+     font-family: var(--font-display);
+     font-weight: 800;
+     font-size: 1.4rem;
+     color: var(--white);
+     letter-spacing: -0.03em;
+     line-height: 1;
+   }
+   
+   .logo-dot {
+     font-family: var(--font-display);
+     font-weight: 800;
+     font-size: 1.6rem;
+     color: var(--accent);
+     line-height: 1;
+   }
+   
+   /* =============================================
+      NAV
+      ============================================= */
+   .nav {
+     display: flex;
+     gap: 2.5rem;
+     align-items: center;
+   }
+   
+   .nav a {
+     font-family: var(--font-body);
+     text-decoration: none;
+     color: var(--white-muted);
+     font-size: 0.88rem;
+     font-weight: 400;
+     letter-spacing: 0.03em;
+     transition: color 0.25s ease;
+     position: relative;
+   }
+   
+   .nav a::after {
+     content: '';
+     position: absolute;
+     bottom: -3px;
+     left: 0;
+     width: 0;
+     height: 1px;
+     background: var(--accent);
+     transition: width 0.3s ease;
+   }
+   
+   .nav a:hover {
+     color: var(--white);
+   }
+   
+   .nav a:hover::after,
+   .nav a.active::after {
+     width: 100%;
+   }
+   
+   .nav a.active {
+     color: var(--white);
+   }
+   
+   /* Contacto como CTA */
+   .nav-cta {
+     font-family: var(--font-body) !important;
+     color: var(--black) !important;
+     background: var(--accent) !important;
+     padding: 0.5rem 1.1rem !important;
+     border-radius: 2px !important;
+     font-size: 0.85rem !important;
+     font-weight: 500 !important;
+     letter-spacing: 0.03em !important;
+     transition: background 0.25s ease, opacity 0.25s ease !important;
+   }
+   
+   .nav-cta:hover {
+     opacity: 0.85 !important;
+     color: var(--black) !important;
+   }
+   
+   .nav-cta::after { display: none !important; }
+   
+   .nav-cta.active {
+     opacity: 0.85;
+     color: var(--black) !important;
+   }
+   
+   /* =============================================
+      BURGER
+      ============================================= */
+   .burger {
+     display: none;
+     background: transparent;
+     border: none;
+     cursor: pointer;
+     padding: 0.4rem;
+     z-index: 1100;
+     flex-direction: column;
+     gap: 5px;
+   }
+   
+   .burger span {
+     display: block;
+     width: 22px;
+     height: 1.5px;
+     background-color: var(--white);
+     transition: all 0.3s ease;
+     transform-origin: center;
+   }
+   
+   .burger.open span:first-child {
+     transform: rotate(45deg) translate(4.5px, 4.5px);
+   }
+   .burger.open span:nth-child(2) {
+     opacity: 0;
+     transform: scaleX(0);
+   }
+   .burger.open span:last-child {
+     transform: rotate(-45deg) translate(4.5px, -4.5px);
+   }
+   
+   /* =============================================
+      MOBILE
+      ============================================= */
+   @media (max-width: 768px) {
+     .header-container { padding: 0 1.25rem; }
+   
+     .burger { display: flex; }
+   
+     .nav {
+       position: fixed;
+       top: 0;
+       right: -100%;
+       width: 100%;
+       height: 100vh;
+       background: var(--black);
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       gap: 0;
+       transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+       padding: 2rem;
+       border-left: 1px solid rgba(255, 255, 255, 0.06);
+     }
+   
+     .nav.open { right: 0; }
+   
+     .nav a {
+       font-family: var(--font-display) !important;
+       font-size: 2rem !important;
+       font-weight: 700 !important;
+       color: var(--white-muted) !important;
+       margin: 0.75rem 0;
+       letter-spacing: -0.02em !important;
+     }
+   
+     .nav a:hover,
+     .nav a.active {
+       color: var(--white) !important;
+     }
+   
+     .nav a::after { display: none; }
+   
+     /* CTA en mobile */
+     .nav-cta {
+       background: transparent !important;
+       color: var(--accent) !important;
+       padding: 0 !important;
+       border-radius: 0 !important;
+     }
+   
+     .nav-cta:hover {
+       color: var(--white) !important;
+       opacity: 1 !important;
+     }
+   
+     .logo { position: relative; z-index: 1100; }
+   }

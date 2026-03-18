@@ -1,35 +1,79 @@
-#root {
-  margin: 0 auto;
-  text-align: center;
-}
+/* =============================================
+   CLYRA STUDIO — App.css
+   Variables globales + reset base
+   ============================================= */
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
+   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+   /* Variables globales — fuente única de verdad */
+   :root {
+     --black: #080808;
+     --black-soft: #111111;
+     --black-card: #161616;
+     --white: #F2F2F0;
+     --white-muted: #999999;
+     --accent: #00F5D4;
+     --accent-dim: rgba(0, 245, 212, 0.10);
+     --font-display: 'Syne', sans-serif;
+     --font-body: 'DM Sans', sans-serif;
+   }
+   
+   /* Reset base */
+   *,
+   *::before,
+   *::after {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   
+   html {
+     scroll-behavior: smooth;
+   }
+   
+   body {
+     font-family: var(--font-body);
+     background-color: var(--black);
+     color: var(--white);
+     line-height: 1.6;
+     overflow-x: hidden;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+   }
+   
+   #root {
+     margin: 0 auto;
+     text-align: left;
+   }
+   
+   .App {
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+   }
+   
+   /* Las páginas crecen para empujar el footer hacia abajo */
+   .App > * {
+     flex-shrink: 0;
+   }
+   
+   a {
+     color: inherit;
+     text-decoration: none;
+   }
+   
+   img {
+     max-width: 100%;
+     display: block;
+   }
+   
+   button {
+     cursor: pointer;
+     font-family: var(--font-body);
+   }
+   
+   /* Scrollbar global */
+   ::-webkit-scrollbar { width: 6px; }
+   ::-webkit-scrollbar-track { background: var(--black); }
+   ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 0; }
+   ::-webkit-scrollbar-thumb:hover { background: var(--accent); }

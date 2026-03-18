@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import './ScrollingText.css'
 
-const ScrollingText = ({ text = "SHALOM AGENCY", className = "" }) => {
+const ScrollingText = ({ text = "Clyra Studio", className = "" }) => {
   const scrollRef = useRef(null)
 
   useEffect(() => {
@@ -21,7 +21,10 @@ const ScrollingText = ({ text = "SHALOM AGENCY", className = "" }) => {
     <div className={`scrolling-container ${className}`}>
       <div ref={scrollRef} className="scrolling-text">
         {Array(10).fill(text).map((item, index) => (
-          <span key={index} className="text-item">{item}</span>
+          <span key={index} className="text-item">
+            {item}
+            <span className="text-separator">✦</span>
+          </span>
         ))}
       </div>
     </div>

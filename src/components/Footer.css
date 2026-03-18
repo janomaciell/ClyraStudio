@@ -1,0 +1,278 @@
+/* =============================================
+   CLYRA STUDIO — Footer.css
+   ============================================= */
+
+   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+   :root {
+     --black: #080808;
+     --black-soft: #111111;
+     --black-card: #161616;
+     --white: #F2F2F0;
+     --white-muted: #999999;
+     --accent: #00F5D4;
+     --font-display: 'Syne', sans-serif;
+     --font-body: 'DM Sans', sans-serif;
+   }
+   
+   .footer {
+     background: var(--black);
+     color: var(--white);
+     font-family: var(--font-body);
+   }
+   
+   .footer-container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 2rem;
+   }
+   
+   /* =============================================
+      CTA PRINCIPAL
+      ============================================= */
+   .footer-cta {
+     padding: 7rem 0 6rem;
+     background: var(--black-soft);
+   }
+   
+   .cta-content {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 3rem;
+   }
+   
+   .cta-title {
+     font-family: var(--font-display);
+     font-size: clamp(3rem, 7vw, 6rem);
+     font-weight: 800;
+     line-height: 0.95;
+     letter-spacing: -0.03em;
+     color: var(--white);
+     margin: 0;
+   }
+   
+   .cta-accent {
+     color: var(--accent);
+     font-style: italic;
+     font-weight: 400;
+   }
+   
+   .cta-btn {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.75rem;
+     background: var(--accent);
+     color: var(--black);
+     font-family: var(--font-display);
+     font-size: 1rem;
+     font-weight: 700;
+     padding: 1rem 2rem;
+     border-radius: 2px;
+     text-decoration: none;
+     white-space: nowrap;
+     flex-shrink: 0;
+     transition: opacity 0.25s ease, transform 0.25s ease;
+     letter-spacing: 0.01em;
+   }
+   
+   .cta-btn:hover {
+     opacity: 0.85;
+     transform: translateY(-2px);
+   }
+   
+   .cta-arrow {
+     display: inline-block;
+     transition: transform 0.25s ease;
+   }
+   
+   .cta-btn:hover .cta-arrow {
+     transform: translateX(4px);
+   }
+   
+   /* =============================================
+      SEPARADOR
+      ============================================= */
+   .footer-divider {
+     height: 1px;
+     background: rgba(255, 255, 255, 0.06);
+   }
+   
+   /* =============================================
+      CUERPO DEL FOOTER
+      ============================================= */
+   .footer-body {
+     padding: 5rem 0 4rem;
+     background: var(--black);
+   }
+   
+   .footer-grid {
+     display: grid;
+     grid-template-columns: 2fr 1fr 1fr 1fr;
+     gap: 4rem;
+   }
+   
+   /* Marca */
+   .footer-brand {}
+   
+   .footer-logo {
+     display: flex;
+     align-items: baseline;
+     gap: 1px;
+     margin-bottom: 1.25rem;
+   }
+   
+   .footer-logo-clyra {
+     font-family: var(--font-display);
+     font-weight: 800;
+     font-size: 1.6rem;
+     color: var(--white);
+     letter-spacing: -0.03em;
+   }
+   
+   .footer-logo-dot {
+     font-family: var(--font-display);
+     font-weight: 800;
+     font-size: 1.8rem;
+     color: var(--accent);
+   }
+   
+   .footer-tagline {
+     font-family: var(--font-body);
+     font-size: 0.95rem;
+     color: var(--white-muted);
+     font-weight: 300;
+     line-height: 1.6;
+     margin-bottom: 0.5rem;
+   }
+   
+   .footer-location {
+     font-family: var(--font-body);
+     font-size: 0.8rem;
+     color: rgba(153, 153, 153, 0.5);
+     font-weight: 300;
+     letter-spacing: 0.05em;
+   }
+   
+   /* Columnas nav */
+   .footer-nav-col {}
+   
+   .footer-col-title {
+     font-family: var(--font-body);
+     font-size: 0.7rem;
+     font-weight: 500;
+     color: var(--accent);
+     text-transform: uppercase;
+     letter-spacing: 0.2em;
+     margin-bottom: 1.5rem;
+   }
+   
+   .footer-nav {
+     display: flex;
+     flex-direction: column;
+     gap: 0.75rem;
+   }
+   
+   .footer-nav a,
+   .footer-nav span {
+     font-family: var(--font-body);
+     font-size: 0.9rem;
+     color: var(--white-muted);
+     font-weight: 300;
+     text-decoration: none;
+     transition: color 0.25s ease;
+     cursor: default;
+   }
+   
+   .footer-nav a {
+     cursor: pointer;
+   }
+   
+   .footer-nav a:hover {
+     color: var(--white);
+   }
+   
+   /* =============================================
+      FOOTER BOTTOM
+      ============================================= */
+   .footer-bottom {
+     border-top: 1px solid rgba(255, 255, 255, 0.06);
+     padding: 1.5rem 0;
+     background: var(--black);
+   }
+   
+   .footer-bottom-inner {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 1rem;
+   }
+   
+   .footer-copy {
+     font-family: var(--font-body);
+     font-size: 0.78rem;
+     color: rgba(153, 153, 153, 0.5);
+     font-weight: 300;
+   }
+   
+   .footer-made {
+     font-family: var(--font-body);
+     font-size: 0.78rem;
+     color: rgba(153, 153, 153, 0.4);
+     font-weight: 300;
+   }
+   
+   .footer-accent {
+     color: var(--accent);
+     opacity: 0.7;
+   }
+   
+   /* =============================================
+      RESPONSIVE
+      ============================================= */
+   @media (max-width: 1024px) {
+     .footer-grid {
+       grid-template-columns: 1fr 1fr;
+       gap: 3rem;
+     }
+     .footer-brand {
+       grid-column: 1 / -1;
+     }
+   }
+   
+   @media (max-width: 768px) {
+     .footer-cta { padding: 5rem 0 4rem; }
+   
+     .cta-content {
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 2.5rem;
+     }
+   
+     .footer-grid {
+       grid-template-columns: 1fr 1fr;
+       gap: 2.5rem;
+     }
+   
+     .footer-brand {
+       grid-column: 1 / -1;
+     }
+   }
+   
+   @media (max-width: 480px) {
+     .footer-grid {
+       grid-template-columns: 1fr;
+       gap: 2rem;
+     }
+   
+     .footer-bottom-inner {
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 0.4rem;
+     }
+   
+     .cta-btn {
+       width: 100%;
+       justify-content: center;
+     }
+   }

@@ -3,7 +3,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ScrollingText from '../components/ScrollingText'
 import './Portfolio.css'
-import logoShalom from '../img/logo-shalom.png' // Añade esta línea
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,18 +14,16 @@ const Portfolio = () => {
   const filtersRef = useRef(null)
 
   useEffect(() => {
-    // Hero animations
     const tl = gsap.timeline()
-    tl.fromTo(heroRef.current.querySelector('.page-title'), 
+    tl.fromTo(heroRef.current.querySelector('.page-title'),
       { y: 100, opacity: 0 },
       { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }
     )
-    .fromTo(heroRef.current.querySelector('.page-subtitle'), 
+    .fromTo(heroRef.current.querySelector('.page-subtitle'),
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.6"
     )
 
-    // Filters animation
     gsap.fromTo(filtersRef.current.children,
       { y: 30, opacity: 0 },
       {
@@ -44,16 +41,11 @@ const Portfolio = () => {
   }, [])
 
   useEffect(() => {
-    // Portfolio items animation
     const items = gsap.utils.toArray('.portfolio-item')
-    
+
     items.forEach((item, index) => {
-      gsap.fromTo(item, 
-        { 
-          y: 80,
-          opacity: 0,
-          scale: 0.9
-        },
+      gsap.fromTo(item,
+        { y: 80, opacity: 0, scale: 0.9 },
         {
           y: 0,
           opacity: 1,
@@ -70,7 +62,6 @@ const Portfolio = () => {
         }
       )
 
-      // Hover animations
       const overlay = item.querySelector('.portfolio-overlay')
       const image = item.querySelector('.portfolio-image img')
       const details = item.querySelector('.project-details')
@@ -94,71 +85,58 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "Crecimiento Digital",
-      category: "redes-sociales",
-      image: logoShalom, // Cambia esta línea
-      description: "Estrategia integral que incrementó engagement 300%",
-      client: "Restaurante Gourmet",
-      metric: "+300% Engagement"
+      title: "Clínica Integral Norte",
+      category: "presencial",
+      image: "https://via.placeholder.com/600x400/0a0a0a/00F5D4?text=01",
+      description: "Web presencial con sistema de turnos online y formulario de contacto.",
+      client: "Medicina privada — GBA",
+      metric: "+180% Consultas"
     },
     {
       id: 2,
-      title: "Identidad de Marca",
-      category: "branding",
-      image: "https://via.placeholder.com/600x400/0f0f0f/ffffff?text=02",
-      description: "Identidad visual completa para startup tecnológica",
-      client: "Tech Startup",
-      metric: "+150% Conversiones"
+      title: "Muebles Artesanos",
+      category: "ecommerce",
+      image: "https://via.placeholder.com/600x400/111111/F2F2F0?text=02",
+      description: "Catálogo digital con carrito y pago integrado vía MercadoPago.",
+      client: "Pyme — CABA",
+      metric: "+320% Ventas online"
     },
     {
       id: 3,
-      title: "Plataforma E-commerce",
-      category: "desarrollo-web",
-      image: "https://via.placeholder.com/600x400/0f0f0f/ffffff?text=03",
-      description: "Plataforma completa con gestión integral",
-      client: "Marca de Moda",
-      metric: "+500% Ventas"
+      title: "Estudio Jurídico Paz",
+      category: "presencial",
+      image: "https://via.placeholder.com/600x400/0a0a0a/00F5D4?text=03",
+      description: "Sitio institucional con secciones de especialidades y contacto directo.",
+      client: "Estudio legal — Córdoba",
+      metric: "+90% Leads"
     },
     {
       id: 4,
-      title: "Campaña Viral",
-      category: "video",
-      image: "https://via.placeholder.com/600x400/0f0f0f/ffffff?text=04",
-      description: "Contenido viral con 2M visualizaciones",
-      client: "Marca Fitness",
-      metric: "2M Visualizaciones"
+      title: "Academia Fitness BA",
+      category: "webapp",
+      image: "https://via.placeholder.com/600x400/111111/F2F2F0?text=04",
+      description: "Plataforma con gestión de turnos, membresías y panel de administración.",
+      client: "Fitness — Palermo",
+      metric: "500+ usuarios activos"
     }
   ]
 
   const categories = [
     { key: 'todos', label: 'Todos' },
-    { key: 'redes-sociales', label: 'Redes' },
-    { key: 'branding', label: 'Marca' },
-    { key: 'desarrollo-web', label: 'Web' },
-        { key: 'Fotografia', label: 'Fotografia' },
-    { key: 'video', label: 'Video' }
-
-     
-
+    { key: 'presencial', label: 'Web presencial' },
+    { key: 'ecommerce', label: 'E-commerce' },
+    { key: 'webapp', label: 'Web app' }
   ]
 
-  const filteredProjects = filter === 'todos' 
-    ? projects 
+  const filteredProjects = filter === 'todos'
+    ? projects
     : projects.filter(project => project.category === filter)
 
   const openModal = (project) => {
     setSelectedProject(project)
     document.body.style.overflow = 'hidden'
-    
-    // Modal entrance animation
-    gsap.fromTo('.modal-overlay', 
-      { opacity: 0 },
-      { opacity: 1, duration: 0.3 }
-    )
-    gsap.fromTo('.modal-content', 
-      { scale: 0.8, y: 50 },
-      { scale: 1, y: 0, duration: 0.5, ease: "power3.out", delay: 0.1 }
-    )
+    gsap.fromTo('.modal-overlay', { opacity: 0 }, { opacity: 1, duration: 0.3 })
+    gsap.fromTo('.modal-content', { scale: 0.8, y: 50 }, { scale: 1, y: 0, duration: 0.5, ease: "power3.out", delay: 0.1 })
   }
 
   const closeModal = () => {
@@ -176,8 +154,8 @@ const Portfolio = () => {
     <div className="portfolio-page">
       <div className="portfolio-hero" ref={heroRef}>
         <div className="container">
-          <h1 className="page-title">Nuestro Trabajo</h1>
-          <p className="page-subtitle">Proyectos seleccionados que entregan resultados</p>
+          <h1 className="page-title">Proyectos</h1>
+          <p className="page-subtitle">Trabajo seleccionado con resultados reales</p>
         </div>
       </div>
 
@@ -197,8 +175,8 @@ const Portfolio = () => {
 
           <div className="portfolio-grid" ref={portfolioRef}>
             {filteredProjects.map((project) => (
-              <div 
-                key={project.id} 
+              <div
+                key={project.id}
                 className="portfolio-item"
                 onClick={() => openModal(project)}
               >
@@ -219,12 +197,11 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Modal Minimalista */}
       {selectedProject && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
-            
+
             <div className="modal-header">
               <span className="modal-number">0{selectedProject.id}</span>
               <h2>{selectedProject.title}</h2>

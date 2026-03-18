@@ -16,37 +16,30 @@ const Home = () => {
   const decorativeElementsRef = useRef([])
 
   useEffect(() => {
-    // Animación inicial del hero mejorada
     const tl = gsap.timeline({ delay: 0.3 })
-    
-    // Animación del tagline superior
+
     tl.fromTo(heroTaglineRef.current,
       { opacity: 0, y: -30 },
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
-    
-    // Animación del título principal con efecto de escritura
     .fromTo(titleRef.current.children,
       { opacity: 0, y: 100, rotationX: 90 },
-      { 
-        opacity: 1, 
-        y: 0, 
+      {
+        opacity: 1,
+        y: 0,
         rotationX: 0,
-        duration: 1.2, 
+        duration: 1.2,
         stagger: 0.1,
-        ease: "back.out(1.7)" 
+        ease: "back.out(1.7)"
       },
       "-=0.3"
     )
-    
-    // Animación del subtítulo
     .fromTo(subtitleRef.current,
       { opacity: 0, y: 50, scale: 0.9 },
       { opacity: 1, y: 0, scale: 1, duration: 1, ease: "power2.out" },
       "-=0.8"
     )
 
-    // Animación de elementos decorativos
     decorativeElementsRef.current.forEach((element, index) => {
       if (element) {
         gsap.set(element, { opacity: 0, scale: 0 })
@@ -57,8 +50,6 @@ const Home = () => {
           delay: 1.5 + (index * 0.1),
           ease: "back.out(1.7)"
         })
-        
-        // Animación flotante continua
         gsap.to(element, {
           y: -20,
           duration: 2 + (index * 0.5),
@@ -69,9 +60,8 @@ const Home = () => {
       }
     })
 
-    // Animaciones con scroll
     gsap.utils.toArray('.section').forEach((section) => {
-      gsap.fromTo(section, 
+      gsap.fromTo(section,
         { opacity: 0, y: 100 },
         {
           opacity: 1,
@@ -88,16 +78,10 @@ const Home = () => {
       )
     })
 
-    // Animación de cards de enfoque con efectos 3D
     approachItemsRef.current.forEach((item, index) => {
       if (item) {
         gsap.fromTo(item,
-          { 
-            opacity: 0, 
-            y: 100, 
-            rotationY: 45,
-            scale: 0.8
-          },
+          { opacity: 0, y: 100, rotationY: 45, scale: 0.8 },
           {
             opacity: 1,
             y: 0,
@@ -114,36 +98,19 @@ const Home = () => {
           }
         )
 
-        // Efectos de hover 3D
         item.addEventListener('mouseenter', () => {
-          gsap.to(item, {
-            y: -15,
-            rotationY: 5,
-            scale: 1.05,
-            duration: 0.4,
-            ease: "power2.out"
-          })
+          gsap.to(item, { y: -15, rotationY: 5, scale: 1.05, duration: 0.4, ease: "power2.out" })
         })
-
         item.addEventListener('mouseleave', () => {
-          gsap.to(item, {
-            y: 0,
-            rotationY: 0,
-            scale: 1,
-            duration: 0.4,
-            ease: "power2.out"
-          })
+          gsap.to(item, { y: 0, rotationY: 0, scale: 1, duration: 0.4, ease: "power2.out" })
         })
       }
     })
 
-    // Animación de cards de clientes con efecto de mosaico
     clientCardsRef.current.forEach((card, index) => {
       if (card) {
         gsap.fromTo(card,
-          { 
-            opacity: 0
-          },
+          { opacity: 0 },
           {
             opacity: 1,
             duration: 0.5,
@@ -155,19 +122,9 @@ const Home = () => {
             }
           }
         )
-
-        // Eliminamos todos los event listeners de hover
-        card.addEventListener('mouseenter', () => {
-          // No hacemos nada
-        })
-
-        card.addEventListener('mouseleave', () => {
-          // No hacemos nada
-        })
       }
     })
 
-    // Cleanup
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
@@ -175,87 +132,74 @@ const Home = () => {
 
   const clientProjects = [
     {
-      title: "PROYECTO ALPHA",
-      category: "BRANDING",
-      subcategories: ["DISEÑO WEB", "SOCIAL MEDIA"],
-      color: "#FF6B35",
-      image: "https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=ALPHA"
+      title: "Clínica Integral Norte",
+      category: "SALUD",
+      subcategories: ["WEB PRESENCIAL", "TURNOS ONLINE"],
+      color: "#00F5D4",
+      image: "https://via.placeholder.com/400x300/0a0a0a/00F5D4?text=SALUD"
     },
     {
-      title: "BETA STUDIOS",
-      category: "BRANDING",
-      subcategories: ["ECOMMERCE", "PAID MEDIA"],
-      color: "#4ECDC4",
-      image: "https://via.placeholder.com/400x300/4ECDC4/FFFFFF?text=BETA"
+      title: "Muebles Artesanos",
+      category: "E-COMMERCE",
+      subcategories: ["TIENDA ONLINE", "CATÁLOGO"],
+      color: "#ffffff",
+      image: "https://via.placeholder.com/400x300/111111/ffffff?text=ECOMMERCE"
     },
     {
-      title: "GAMMA CORP",
-      category: "BRANDING",
-      subcategories: ["DESARROLLO", "UX/UI"],
-      color: "#FFE66D",
-      image: "https://via.placeholder.com/400x300/FFE66D/000000?text=GAMMA"
+      title: "Estudio Jurídico Paz",
+      category: "LEGAL",
+      subcategories: ["WEB PRESENCIAL", "CONTACTO"],
+      color: "#00F5D4",
+      image: "https://via.placeholder.com/400x300/0a0a0a/00F5D4?text=LEGAL"
     },
     {
-      title: "DELTA INNOVATIONS",
-      category: "BRANDING",
-      subcategories: ["BRANDING", "MARKETING"],
-      color: "#A8E6CF",
-      image: "https://via.placeholder.com/400x300/A8E6CF/000000?text=DELTA"
+      title: "Academia Fitness BA",
+      category: "DEPORTE",
+      subcategories: ["PLATAFORMA", "TURNOS"],
+      color: "#ffffff",
+      image: "https://via.placeholder.com/400x300/111111/ffffff?text=FITNESS"
     },
     {
-      title: "EPSILON DESIGN",
-      category: "BRANDING",
-      subcategories: ["CREATIVIDAD", "ESTRATEGIA"],
-      color: "#C7CEEA",
-      image: "https://via.placeholder.com/400x300/C7CEEA/000000?text=EPSILON"
+      title: "Distribuidora El Sur",
+      category: "PYME",
+      subcategories: ["CATÁLOGO", "PEDIDOS"],
+      color: "#00F5D4",
+      image: "https://via.placeholder.com/400x300/0a0a0a/00F5D4?text=PYME"
     }
   ]
 
   return (
     <div className="home modern-home">
-      {/* Hero Section Mejorado */}
+
+      {/* Hero */}
       <section ref={heroRef} className="hero modern-hero">
         <div className="hero-content">
           <p ref={heroTaglineRef} className="hero-tagline">
-            ESCUCHAMOS, CONECTAMOS, POTENCIAMOS
+            DISEÑO · DESARROLLO · RESULTADOS
           </p>
-          
+
           <h1 ref={titleRef} className="hero-title modern-title">
-            <span className="sloop-font">Shalom</span>
-            <span className="montserrat">Agency</span>
+            <span className="title-clyra">Clyra</span>
+            <span className="title-studio">Studio</span>
           </h1>
+
           <p ref={subtitleRef} className="hero-subtitle modern-subtitle">
-          “Manténganse atentos y firmes en la fe; sean fuertes y valientes. Háganlo todo con amor.”
-
-
+            Presencia digital que <span className="highlight">convierte</span>
           </p>
-          <br />
-          <span className="highlight">1 Corintios 16:13-14</span>
 
-
-          {/* Elementos decorativos */}
           <div className="decorative-elements">
-            <div 
-              ref={el => decorativeElementsRef.current[0] = el}
-              className="floating-element element-1"
-            >
+            <div ref={el => decorativeElementsRef.current[0] = el} className="floating-element element-1">
               <svg width="60" height="60" viewBox="0 0 60 60">
-                <circle cx="30" cy="30" r="25" fill="none" stroke="#FF6B35" strokeWidth="2"/>
+                <circle cx="30" cy="30" r="25" fill="none" stroke="#00F5D4" strokeWidth="1.5"/>
               </svg>
             </div>
-            <div 
-              ref={el => decorativeElementsRef.current[1] = el}
-              className="floating-element element-2"
-            >
+            <div ref={el => decorativeElementsRef.current[1] = el} className="floating-element element-2">
               <svg width="40" height="40" viewBox="0 0 40 40">
-                <rect x="10" y="10" width="20" height="20" fill="#4ECDC4" transform="rotate(45 20 20)"/>
+                <rect x="10" y="10" width="20" height="20" fill="none" stroke="#ffffff" strokeWidth="1.5" transform="rotate(45 20 20)"/>
               </svg>
             </div>
-            <div 
-              ref={el => decorativeElementsRef.current[2] = el}
-              className="floating-element element-3"
-            >
-              <div className="pink-dot"></div>
+            <div ref={el => decorativeElementsRef.current[2] = el} className="floating-element element-3">
+              <div className="accent-dot"></div>
             </div>
           </div>
         </div>
@@ -263,70 +207,62 @@ const Home = () => {
 
       <ScrollingText />
 
-      {/* Nuestro Enfoque - Estilo Moderno */}
+      {/* Nuestro Enfoque */}
       <section className="section approach modern-approach">
         <div className="container">
           <div className="approach-header">
-            <h2 className="section-title modern-section-title" style={{ color: '#000000' }}>
+            <h2 className="section-title modern-section-title">
               Nuestro enfoque
             </h2>
             <p className="approach-description">
-              Diseñamos experiencias que generan impacto y resultados medibles, 
-              creando conexiones auténticas que impulsan el crecimiento.
+              Diseñamos y desarrollamos experiencias digitales a medida,
+              con código limpio y resultados medibles para tu negocio.
             </p>
           </div>
-          
+
           <div className="approach-grid modern-grid">
-            <div 
-              className="approach-item modern-card"
-              ref={el => approachItemsRef.current[0] = el}
-            >
+            <div className="approach-item modern-card" ref={el => approachItemsRef.current[0] = el}>
               <div className="card-number">01</div>
               <h3>Estrategia</h3>
               <div className="card-line"></div>
-              <p>Desarrollamos estrategias digitales personalizadas que conectan con tu audiencia y generan resultados medibles.</p>
+              <p>Analizamos tu negocio y tu competencia antes de escribir una sola línea de código. Cada decisión tiene un porqué.</p>
             </div>
-            
-            <div 
-              className="approach-item modern-card"
-              ref={el => approachItemsRef.current[1] = el}
-            >
+
+            <div className="approach-item modern-card" ref={el => approachItemsRef.current[1] = el}>
               <div className="card-number">02</div>
-              <h3>Creatividad</h3>
+              <h3>Desarrollo</h3>
               <div className="card-line"></div>
-              <p>Combinamos arte y ciencia para crear contenido visual que capture la esencia de tu marca.</p>
+              <p>Stack moderno, React + Django, desplegado en la nube. Rápido, seguro y escalable desde el día uno.</p>
             </div>
-            
-            <div 
-              className="approach-item modern-card"
-              ref={el => approachItemsRef.current[2] = el}
-            >
+
+            <div className="approach-item modern-card" ref={el => approachItemsRef.current[2] = el}>
               <div className="card-number">03</div>
               <h3>Resultados</h3>
               <div className="card-line"></div>
-              <p>Nos enfocamos en métricas que importan, convirtiendo seguidores en clientes leales.</p>
+              <p>Entregamos en 7 a 14 días. Soporte post-lanzamiento incluido. Tu web trabaja mientras vos dormís.</p>
             </div>
           </div>
         </div>
       </section>
+
       <ScrollingText />
 
-      {/* Nuestros Clientes - Estilo Mosaico */}
+      {/* Proyectos */}
       <section className="section clients modern-clients">
         <div className="container">
           <div className="clients-header">
             <h2 className="section-title modern-section-title">
-              Nuestros clientes
+              Proyectos
               <svg className="title-underline" viewBox="0 0 100 20">
-                <path d="M0,10 Q50,0 100,10" stroke="#FF6B35" strokeWidth="2" fill="none"/>
+                <path d="M0,10 Q50,0 100,10" stroke="#00F5D4" strokeWidth="2" fill="none"/>
               </svg>
             </h2>
-            <p className="clients-subtitle">Mira como trabajamos</p>
+            <p className="clients-subtitle">Lo que construimos para nuestros clientes</p>
           </div>
-          
+
           <div className="clients-mosaic">
             {clientProjects.map((project, index) => (
-              <div 
+              <div
                 key={index}
                 className="client-card"
                 ref={el => clientCardsRef.current[index] = el}
@@ -348,44 +284,35 @@ const Home = () => {
         </div>
       </section>
 
-
-      {/* Misión - Minimalista */}
-{/* Misión y Visión - Sección formal y estructurada */}
+      {/* Misión y Visión */}
       <section className="section mission modern-mission">
         <div className="container">
           <div className="mission-vision-wrapper">
-            {/* Misión */}
+
             <div className="mission-content">
               <div className="mission-text-block">
                 <h2 className="section-title modern-section-title">
-                  Nuestra Misión
+                  Qué hacemos
                 </h2>
                 <div className="large-text">
-                  Transformar las ideas de nuestros clientes en <span className="highlight">EXPERIENCIAS DIGITALES EXITOSAS </span> 
-                  que generen conexiones auténticas con sus audiencias y resultados medibles para sus negocios.
+                  Transformamos negocios reales en <span className="highlight">presencias digitales que generan clientes</span>, no solo visitas.
                 </div>
                 <p className="regular-text">
-                  A través de estrategias de marketing digital personalizadas, diseño innovador y 
-                  tecnología de vanguardia, acompañamos a las marcas en su crecimiento y 
-                  posicionamiento en el mercado digital.
+                  Somos un estudio boutique de desarrollo web con base en Argentina. Trabajamos con pymes, profesionales independientes y negocios de e-commerce que necesitan resultados concretos, no promesas de agencia.
                 </p>
               </div>
             </div>
 
-            {/* Visión */}
             <div className="vision-content">
               <div className="vision-text-block">
                 <h2 className="section-title modern-section-title">
-                  Nuestra Visión
+                  A dónde vamos
                 </h2>
                 <div className="large-text">
-                  Ser la <span className="highlight">AGENCIA DE REFERENCIA</span> en soluciones digitales integrales, 
-                  reconocida por nuestra excelencia creativa y resultados excepcionales.
+                  Ser el estudio de referencia para negocios argentinos que quieren <span className="highlight">competir en serio en el mundo digital</span>.
                 </div>
                 <p className="regular-text">
-                  Aspiramos a liderar la transformación digital de las empresas, estableciendo 
-                  nuevos estándares de calidad y innovación en la industria del marketing digital 
-                  y el desarrollo de experiencias de usuario.
+                  Cada proyecto que entregamos es una vitrina de lo que es posible cuando el diseño y el código trabajan juntos con un objetivo claro: hacer crecer tu negocio.
                 </p>
               </div>
             </div>
@@ -393,6 +320,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
     </div>
   )
 }
