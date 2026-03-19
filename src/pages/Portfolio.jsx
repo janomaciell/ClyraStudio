@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import ScrollingText from '../components/ScrollingText'
 import './Portfolio.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -27,15 +26,8 @@ const Portfolio = () => {
     gsap.fromTo(filtersRef.current.children,
       { y: 30, opacity: 0 },
       {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: filtersRef.current,
-          start: "top 90%"
-        }
+        y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out",
+        scrollTrigger: { trigger: filtersRef.current, start: "top 90%" }
       }
     )
   }, [])
@@ -43,22 +35,12 @@ const Portfolio = () => {
   useEffect(() => {
     const items = gsap.utils.toArray('.portfolio-item')
 
-    items.forEach((item, index) => {
+    items.forEach((item) => {
       gsap.fromTo(item,
         { y: 80, opacity: 0, scale: 0.9 },
         {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          delay: index * 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: item,
-            start: "top 85%",
-            end: "bottom 15%",
-            toggleActions: "play none none reverse"
-          }
+          y: 0, opacity: 1, scale: 1, duration: 1, ease: "power3.out",
+          scrollTrigger: { trigger: item, start: "top 85%", end: "bottom 15%", toggleActions: "play none none reverse" }
         }
       )
 
@@ -71,7 +53,6 @@ const Portfolio = () => {
         gsap.to(overlay, { opacity: 1, duration: 0.4 })
         gsap.to(details, { y: 0, opacity: 1, duration: 0.4, delay: 0.1 })
       })
-
       item.addEventListener('mouseleave', () => {
         gsap.to(image, { scale: 1, duration: 0.6, ease: "power2.out" })
         gsap.to(overlay, { opacity: 0, duration: 0.4 })
@@ -85,39 +66,69 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "Clínica Integral Norte",
-      category: "presencial",
-      image: "https://via.placeholder.com/600x400/0a0a0a/00F5D4?text=01",
-      description: "Web presencial con sistema de turnos online y formulario de contacto.",
-      client: "Medicina privada — GBA",
-      metric: "+180% Consultas"
+      title: "Encuentrame QR",
+      category: "webapp",
+      url: "https://www.encuentrameqr.com/",
+      image: "/encuentrame.png",
+      description: "Plataforma de identificación de mascotas con QR, geolocalización en tiempo real, generación automática de posters y sistema de alertas a usuarios en un radio de 3 km.",
+      client: "Producto propio — Argentina",
+      tags: ["React", "Django", "Geolocalización", "QR"],
+      metric: "Alertas por proximidad (3 km)"
     },
     {
       id: 2,
-      title: "Muebles Artesanos",
-      category: "ecommerce",
-      image: "https://via.placeholder.com/600x400/111111/F2F2F0?text=02",
-      description: "Catálogo digital con carrito y pago integrado vía MercadoPago.",
-      client: "Pyme — CABA",
-      metric: "+320% Ventas online"
+      title: "Bob's Café",
+      category: "presencial",
+      url: "https://bobs-cafe-pinamar.vercel.app/",
+      image: "/bobs-cafe.png",
+      description: "Web presencial para cafetería artesanal en Pinamar. Diseño visual de alta fidelidad con galería del local, ubicación y menú digital.",
+      client: "Gastronomía — Pinamar, BA",
+      tags: ["React", "Vite", "GSAP", "Diseño"],
+      metric: "Presencia digital completa"
     },
     {
       id: 3,
-      title: "Estudio Jurídico Paz",
+      title: "VIRA Constructora",
       category: "presencial",
-      image: "https://via.placeholder.com/600x400/0a0a0a/00F5D4?text=03",
-      description: "Sitio institucional con secciones de especialidades y contacto directo.",
-      client: "Estudio legal — Córdoba",
-      metric: "+90% Leads"
+      url: "https://www.viraconstructora.com/",
+      image: "/viraconstructora.png",
+      description: "Plataforma inmobiliaria para constructora en Pinamar. Catálogo de propiedades, fichas técnicas por proyecto y contacto directo con el equipo.",
+      client: "Real estate — Pinamar, BA",
+      tags: ["React", "Django", "Inmobiliaria"],
+      metric: "+4 años de proyectos exhibidos"
     },
     {
       id: 4,
-      title: "Academia Fitness BA",
+      title: "Tejiendo con Andy",
+      category: "ecommerce",
+      url: "https://www.tejiendoconandy.com/",
+      image: "/tejiendoconandy.jpeg",
+      description: "Plataforma de venta de cursos de amigurumi y crochet. Pasarela de pago con MercadoPago, gestión de alumnos, base de datos relacional y animaciones GSAP.",
+      client: "E-learning — Argentina",
+      tags: ["React", "Django", "MercadoPago", "GSAP"],
+      metric: "Pasarela de pago integrada"
+    },
+    {
+      id: 5,
+      title: "Cursos de Pilates",
+      category: "ecommerce",
+      url: "https://clyra-studio.vercel.app/",
+      image: "/.png",
+      description: "Plataforma de venta de cursos de pilates online. Sistema de suscripciones, pasarela de pago con MercadoPago, base de datos compleja y frontend animado con GSAP.",
+      client: "E-learning — Argentina",
+      tags: ["React", "Django", "MercadoPago", "GSAP"],
+      metric: "Sistema de suscripciones"
+    },
+    {
+      id: 6,
+      title: "Criptomix",
       category: "webapp",
-      image: "https://via.placeholder.com/600x400/111111/F2F2F0?text=04",
-      description: "Plataforma con gestión de turnos, membresías y panel de administración.",
-      client: "Fitness — Palermo",
-      metric: "500+ usuarios activos"
+      url: "https://criptomix.com/",
+      image: "/criptomix.png",
+      description: "Plataforma fintech de trading automatizado de criptomonedas. Bot inteligente, gestión de carteras y 4 pasarelas de pago: PayPal, Stripe, MercadoPago y wallets crypto.",
+      client: "Fintech — Argentina",
+      tags: ["React", "Django", "Blockchain", "Stripe", "MercadoPago"],
+      metric: "4 pasarelas de pago integradas"
     }
   ]
 
@@ -141,8 +152,7 @@ const Portfolio = () => {
 
   const closeModal = () => {
     gsap.to('.modal-overlay', {
-      opacity: 0,
-      duration: 0.3,
+      opacity: 0, duration: 0.3,
       onComplete: () => {
         setSelectedProject(null)
         document.body.style.overflow = 'auto'
@@ -152,15 +162,17 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-page">
+
       <div className="portfolio-hero" ref={heroRef}>
         <div className="container">
           <h1 className="page-title">Proyectos</h1>
-          <p className="page-subtitle">Trabajo seleccionado con resultados reales</p>
+          <p className="page-subtitle">Trabajo real con resultados medibles</p>
         </div>
       </div>
 
       <section className="portfolio-section">
         <div className="container">
+
           <div className="portfolio-filters" ref={filtersRef}>
             {categories.map(category => (
               <button
@@ -187,41 +199,65 @@ const Portfolio = () => {
                       <span className="project-number">0{project.id}</span>
                       <h3>{project.title}</h3>
                       <p>{project.description}</p>
-                      <div className="project-metric">{project.metric}</div>
+                      <div className="project-tags">
+                        {project.tags.map((tag, i) => (
+                          <span key={i} className="project-tag">{tag}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
+      {/* Modal */}
       {selectedProject && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
 
-            <div className="modal-header">
+            <div className="modal-left">
               <span className="modal-number">0{selectedProject.id}</span>
               <h2>{selectedProject.title}</h2>
               <p className="modal-client">{selectedProject.client}</p>
-            </div>
 
-            <div className="modal-image">
-              <img src={selectedProject.image} alt={selectedProject.title} />
-            </div>
-
-            <div className="modal-info">
-              <p>{selectedProject.description}</p>
-              <div className="modal-metric">
-                <span>Resultado</span>
-                <strong>{selectedProject.metric}</strong>
+              <div className="modal-tags">
+                {selectedProject.tags.map((tag, i) => (
+                  <span key={i} className="modal-tag">{tag}</span>
+                ))}
               </div>
+
+              <div className="modal-metric-block">
+                <span className="modal-metric-label">Destacado</span>
+                <strong className="modal-metric-value">{selectedProject.metric}</strong>
+              </div>
+
+              <a
+                href={selectedProject.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="modal-visit-btn"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Ver proyecto <span>→</span>
+              </a>
             </div>
+
+            <div className="modal-right">
+              <div className="modal-image">
+                <img src={selectedProject.image} alt={selectedProject.title} />
+              </div>
+              <p className="modal-description">{selectedProject.description}</p>
+            </div>
+
           </div>
         </div>
       )}
+
     </div>
   )
 }

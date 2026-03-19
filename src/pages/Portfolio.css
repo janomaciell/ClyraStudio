@@ -1,343 +1,383 @@
 /* =============================================
    CLYRA STUDIO — Portfolio.css
-   Paleta: 80% negro / 15% blanco / 5% #00F5D4
-   Fuentes: Syne (display) + DM Sans (body)
    ============================================= */
 
-   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
-
    :root {
-     --black: #080808;
-     --black-soft: #111111;
-     --black-card: #161616;
-     --white: #F2F2F0;
-     --white-muted: #999999;
-     --accent: #00F5D4;
-     --accent-dim: rgba(0, 245, 212, 0.1);
-     --font-display: 'Syne', sans-serif;
-     --font-body: 'DM Sans', sans-serif;
-   }
-   
-   .portfolio-page {
-     padding-top: 80px;
-     background: var(--black);
-     min-height: 100vh;
-     font-family: var(--font-body);
-     color: var(--white);
-   }
-   
-   /* =============================================
-      HERO
-      ============================================= */
-   .portfolio-hero {
-     padding: 8rem 0 4rem;
-     text-align: center;
-     background: var(--black);
-   }
-   
-   .page-title {
-     font-family: var(--font-display);
-     font-size: clamp(3rem, 8vw, 9rem);
-     font-weight: 800;
-     color: var(--white);
-     margin: 0;
-     letter-spacing: -0.03em;
-     line-height: 0.9;
-   }
-   
-   .page-subtitle {
-     font-family: var(--font-body);
-     font-size: 1rem;
-     color: var(--white-muted);
-     margin: 2rem 0 0;
-     font-weight: 300;
-     letter-spacing: 0.05em;
-   }
-   
-   /* =============================================
-      FILTROS
-      ============================================= */
-   .portfolio-section {
-     padding: 4rem 0 8rem;
-   }
-   
-   .portfolio-filters {
-     display: flex;
-     justify-content: center;
-     gap: 0;
-     margin-bottom: 5rem;
-     border: 1px solid rgba(255, 255, 255, 0.08);
-     border-radius: 2px;
-     overflow: hidden;
-     width: fit-content;
-     margin-left: auto;
-     margin-right: auto;
-   }
-   
-   .filter-btn {
-     background: transparent;
-     border: none;
-     color: var(--white-muted);
-     padding: 0.9rem 1.75rem;
-     cursor: pointer;
-     transition: all 0.3s ease;
-     font-family: var(--font-body);
-     font-weight: 300;
-     font-size: 0.85rem;
-     letter-spacing: 0.06em;
-     position: relative;
-   }
-   
-   .filter-btn:not(:last-child)::after {
-     content: '';
-     position: absolute;
-     right: 0;
-     top: 50%;
-     transform: translateY(-50%);
-     width: 1px;
-     height: 16px;
-     background: rgba(255, 255, 255, 0.08);
-   }
-   
-   .filter-btn:hover {
-     color: var(--white);
-     background: rgba(255, 255, 255, 0.03);
-   }
-   
-   .filter-btn.active {
-     color: var(--accent);
-     background: var(--accent-dim);
-   }
-   
-   /* =============================================
-      GRID DE PROYECTOS
-      ============================================= */
-   .portfolio-grid {
-     display: grid;
-     grid-template-columns: repeat(2, 1fr);
-     gap: 2px;
-     max-width: 1200px;
-     margin: 0 auto;
-   }
-   
-   .portfolio-item {
-     aspect-ratio: 4/3;
-     cursor: pointer;
-     position: relative;
-     overflow: hidden;
-     background: var(--black-card);
-   }
-   
-   .portfolio-image {
-     width: 100%;
-     height: 100%;
-     position: relative;
-     overflow: hidden;
-   }
-   
-   .portfolio-image img {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     filter: grayscale(100%) brightness(0.85);
-     transition: filter 0.6s ease;
-   }
-   
-   .portfolio-item:hover .portfolio-image img {
-     filter: grayscale(0%) brightness(1);
-   }
-   
-   .portfolio-overlay {
-     position: absolute;
-     inset: 0;
-     background: rgba(8, 8, 8, 0.85);
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     opacity: 0;
-   }
-   
-   .project-details {
-     text-align: center;
-     color: var(--white);
-     transform: translateY(20px);
-     opacity: 0;
-     padding: 2rem;
-   }
-   
-   .project-number {
-     font-family: var(--font-body);
-     font-size: 0.7rem;
-     color: var(--accent);
-     display: block;
-     margin-bottom: 1rem;
-     letter-spacing: 0.25em;
-   }
-   
-   .project-details h3 {
-     font-family: var(--font-display);
-     font-size: 1.6rem;
-     font-weight: 700;
-     margin: 0 0 0.75rem;
-     letter-spacing: -0.02em;
-     color: var(--white);
-   }
-   
-   .project-details p {
-     font-family: var(--font-body);
-     font-size: 0.9rem;
-     color: var(--white-muted);
-     margin: 0 0 1.5rem;
-     line-height: 1.5;
-     font-weight: 300;
-   }
-   
-   .project-metric {
-     font-family: var(--font-body);
-     font-size: 0.75rem;
-     color: var(--accent);
-     padding: 0.4rem 1rem;
-     border: 1px solid rgba(0, 245, 212, 0.3);
-     border-radius: 2px;
-     display: inline-block;
-     letter-spacing: 0.08em;
-   }
-   
-   /* =============================================
-      MODAL
-      ============================================= */
-   .modal-overlay {
-     position: fixed;
-     inset: 0;
-     background: rgba(0, 0, 0, 0.95);
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     z-index: 2000;
-     padding: 2rem;
-   }
-   
-   .modal-content {
-     background: var(--black-soft);
-     border: 1px solid rgba(255, 255, 255, 0.08);
-     border-top: 1px solid var(--accent);
-     border-radius: 2px;
-     max-width: 800px;
-     width: 100%;
-     position: relative;
-     padding: 3rem;
-     display: grid;
-     grid-template-columns: 1fr 2fr;
-     gap: 3rem;
-     align-items: start;
-   }
-   
-   .modal-close {
-     position: absolute;
-     top: 1.25rem;
-     right: 1.25rem;
-     background: none;
-     border: none;
-     color: var(--white-muted);
-     font-size: 1.4rem;
-     cursor: pointer;
-     transition: color 0.2s ease;
-     width: 28px;
-     height: 28px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     font-family: var(--font-body);
-   }
-   
-   .modal-close:hover {
-     color: var(--accent);
-   }
-   
-   .modal-number {
-     font-family: var(--font-body);
-     font-size: 0.7rem;
-     color: var(--accent);
-     letter-spacing: 0.25em;
-     display: block;
-     margin-bottom: 1rem;
-   }
-   
-   .modal-header h2 {
-     font-family: var(--font-display);
-     font-size: 1.8rem;
-     font-weight: 700;
-     color: var(--white);
-     margin: 0 0 0.5rem;
-     letter-spacing: -0.02em;
-   }
-   
-   .modal-client {
-     color: var(--white-muted);
-     font-size: 0.85rem;
-     margin: 0;
-     font-weight: 300;
-   }
-   
-   .modal-image img {
-     width: 100%;
-     height: 280px;
-     object-fit: cover;
-     border-radius: 2px;
-     filter: grayscale(30%);
-   }
-   
-   .modal-info p {
-     font-family: var(--font-body);
-     color: var(--white-muted);
-     line-height: 1.7;
-     margin-bottom: 2rem;
-     font-size: 0.95rem;
-     font-weight: 300;
-   }
-   
-   .modal-metric {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 1rem 0;
-     border-top: 1px solid rgba(255, 255, 255, 0.06);
-   }
-   
-   .modal-metric span {
-     font-family: var(--font-body);
-     color: var(--white-muted);
-     font-size: 0.75rem;
-     letter-spacing: 0.08em;
-     font-weight: 300;
-   }
-   
-   .modal-metric strong {
-     font-family: var(--font-display);
-     color: var(--accent);
-     font-weight: 700;
-     font-size: 1rem;
-   }
-   
-   /* =============================================
-      RESPONSIVE
-      ============================================= */
-   @media (max-width: 1024px) {
-     .portfolio-grid { grid-template-columns: 1fr; }
-     .modal-content { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
-     .page-title { font-size: clamp(2rem, 8vw, 5rem); }
-   }
-   
-   @media (max-width: 768px) {
-     .portfolio-hero { padding: 4rem 0 2rem; }
-     .portfolio-filters { flex-wrap: wrap; border-radius: 2px; width: auto; justify-content: center; }
-     .filter-btn:not(:last-child)::after { display: none; }
-     .modal-overlay { padding: 1rem; align-items: flex-end; }
-     .modal-content { padding: 1.5rem; border-radius: 2px 2px 0 0; }
-     .modal-image img { height: 180px; }
-     .page-title { font-size: clamp(2rem, 8vw, 5rem); }
-   }
-
-   
-   /* Scroll animations */
-   .portfolio-item, .modal-content { will-change: transform, opacity; }
+    --black: #080808;
+    --black-soft: #111111;
+    --black-card: #161616;
+    --white: #F2F2F0;
+    --white-muted: #999999;
+    --accent: #00F5D4;
+    --accent-dim: rgba(0, 245, 212, 0.1);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  
+  .portfolio-page {
+    padding-top: 80px;
+    background: var(--black);
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--white);
+  }
+  
+  /* =============================================
+     HERO
+     ============================================= */
+  .portfolio-hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    background: var(--black);
+  }
+  
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 9rem);
+    font-weight: 800;
+    color: var(--white);
+    margin: 0;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+  }
+  
+  .page-subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--white-muted);
+    margin: 2rem 0 0;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+  
+  /* =============================================
+     FILTROS
+     ============================================= */
+  .portfolio-section {
+    padding: 4rem 0 8rem;
+  }
+  
+  .portfolio-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .filter-btn {
+    background: transparent;
+    border: none;
+    color: var(--white-muted);
+    padding: 0.9rem 1.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    position: relative;
+  }
+  
+  .filter-btn:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 1px; height: 16px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .filter-btn:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+  .filter-btn.active { color: var(--accent); background: var(--accent-dim); }
+  
+  /* =============================================
+     GRID
+     ============================================= */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .portfolio-item {
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: var(--black-card);
+  }
+  
+  .portfolio-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.8);
+    transition: filter 0.6s ease;
+  }
+  
+  .portfolio-item:hover .portfolio-image img {
+    filter: grayscale(0%) brightness(1);
+  }
+  
+  .portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 8, 8, 0.88);
+    display: flex;
+    align-items: flex-end;
+    opacity: 0;
+    padding: 2rem;
+  }
+  
+  .project-details {
+    color: var(--white);
+    transform: translateY(20px);
+    opacity: 0;
+    width: 100%;
+  }
+  
+  .project-number {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.25em;
+  }
+  
+  .project-details h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  
+  .project-details p {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--white-muted);
+    margin: 0 0 1rem;
+    line-height: 1.5;
+    font-weight: 300;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  
+  .project-tag {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    color: var(--accent);
+    border: 1px solid rgba(0, 245, 212, 0.25);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+  }
+  
+  /* =============================================
+     MODAL
+     ============================================= */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 2rem;
+  }
+  
+  .modal-content {
+    background: var(--black-soft);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--accent);
+    border-radius: 2px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 3rem;
+    align-items: start;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    background: none; border: none;
+    color: var(--white-muted);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-body);
+  }
+  
+  .modal-close:hover { color: var(--accent); }
+  
+  /* Modal izquierda */
+  .modal-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .modal-number {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.25em;
+    display: block;
+  }
+  
+  .modal-left h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  
+  .modal-client {
+    font-family: var(--font-body);
+    color: var(--white-muted);
+    font-size: 0.85rem;
+    margin: 0;
+    font-weight: 300;
+  }
+  
+  .modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  
+  .modal-tag {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: var(--accent);
+    border: 1px solid rgba(0, 245, 212, 0.25);
+    background: var(--accent-dim);
+    padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+  }
+  
+  .modal-metric-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-left: 2px solid var(--accent);
+    border-radius: 2px;
+    background: rgba(0,245,212,0.03);
+  }
+  
+  .modal-metric-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: var(--white-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 300;
+  }
+  
+  .modal-metric-value {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  
+  .modal-visit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: var(--black);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.75rem 1.25rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.25s ease;
+    width: fit-content;
+    margin-top: auto;
+  }
+  
+  .modal-visit-btn:hover { opacity: 0.85; }
+  
+  /* Modal derecha */
+  .modal-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .modal-image img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 2px;
+    filter: grayscale(20%);
+  }
+  
+  .modal-description {
+    font-family: var(--font-body);
+    color: var(--white-muted);
+    line-height: 1.75;
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin: 0;
+  }
+  
+  /* =============================================
+     RESPONSIVE
+     ============================================= */
+  @media (max-width: 1024px) {
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .modal-content { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
+  }
+  
+  @media (max-width: 768px) {
+    .portfolio-hero { padding: 4rem 0 2rem; }
+    .portfolio-filters { flex-wrap: wrap; width: auto; justify-content: center; }
+    .filter-btn:not(:last-child)::after { display: none; }
+    .modal-overlay { padding: 1rem; align-items: flex-end; }
+    .modal-content { border-radius: 2px 2px 0 0; max-height: 85vh; }
+    .modal-image img { height: 180px; }
+  }
+  
+  .portfolio-item, .modal-content { will-change: transform, opacity; }
