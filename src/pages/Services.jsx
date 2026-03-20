@@ -138,45 +138,45 @@ const Services = () => {
   const services = [
     {
       number: "01",
-      title: "Web",
-      subtitle: "Presencial",
-      description: "Sitios que posicionan tu negocio y generan contactos desde el día uno.",
-      detail: "Para médicos, abogados y pymes"
+      title: "Identidad",
+      subtitle: "de Marca",
+      description: "Logo, paleta, tipografía y manual básico. Tu marca construida desde cero o renovada.",
+      detail: "Branding profesional completo"
     },
     {
       number: "02",
+      title: "Sitios",
+      subtitle: "Presenciales",
+      description: "Presencia digital para profesionales y pymes que necesitan generar contactos reales.",
+      detail: "Médicos, abogados, comercios"
+    },
+    {
+      number: "03",
       title: "E-commerce",
-      subtitle: "& Catálogo",
+      subtitle: "& Catálogos",
       description: "Tiendas online optimizadas para convertir visitas en ventas reales.",
       detail: "Integración con MercadoPago"
     },
     {
-      number: "03",
-      title: "Web",
-      subtitle: "Apps",
-      description: "Plataformas a medida con panel de administración y lógica propia.",
+      number: "04",
+      title: "Plataformas",
+      subtitle: "a Medida",
+      description: "Web apps con lógica propia, panel de administración y base de datos.",
       detail: "React + Django REST"
     },
     {
-      number: "04",
+      number: "05",
       title: "UX",
       subtitle: "& Diseño",
-      description: "Interfaces que se sienten modernas y guían al usuario hacia la acción.",
-      detail: "Diseño sin templates"
-    },
-    {
-      number: "05",
-      title: "Deploy",
-      subtitle: "& Hosting",
-      description: "Configuración completa en la nube: Vercel, Render y Supabase.",
-      detail: "Rápido, seguro, escalable"
+      description: "Interfaces modernas que guían al usuario hacia la acción. Sin templates.",
+      detail: "Diseño centrado en resultados"
     },
     {
       number: "06",
       title: "Soporte",
-      subtitle: "Post-launch",
-      description: "Acompañamiento después de la entrega para que nada falle en producción.",
-      detail: "Respuesta en 24hs"
+      subtitle: "& Lanzamiento",
+      description: "Deploy, hosting y acompañamiento post-entrega para que nada falle en producción.",
+      detail: "Vercel · Render · Supabase"
     }
   ]
 
@@ -184,7 +184,7 @@ const Services = () => {
     { title: "Descubrir", morph: "ANÁLISIS DEL NEGOCIO" },
     { title: "Diseñar", morph: "UI/UX A MEDIDA" },
     { title: "Desarrollar", morph: "CÓDIGO LIMPIO" },
-    { title: "Lanzar", morph: "ENTREGA EN 7-14 DÍAS" }
+    { title: "Lanzar", morph: "ENTREGA EN 15-90 DÍAS" }
   ]
 
   return (

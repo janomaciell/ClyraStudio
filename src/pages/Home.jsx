@@ -132,39 +132,46 @@ const Home = () => {
 
   const clientProjects = [
     {
-      title: "Clínica Integral Norte",
-      category: "SALUD",
-      subcategories: ["WEB PRESENCIAL", "TURNOS ONLINE"],
+      title: "Encuentrame QR",
+      category: "PRODUCTO PROPIO",
+      subcategories: ["WEB APP", "GEOLOCALIZACIÓN"],
       color: "#00F5D4",
-      image: "https://via.placeholder.com/400x300/0a0a0a/00F5D4?text=SALUD"
+      image: "/encuentrame.png"
     },
     {
-      title: "Muebles Artesanos",
+      title: "Bob's Café",
+      category: "GASTRONOMÍA",
+      subcategories: ["WEB PRESENCIAL", "DISEÑO"],
+      color: "#ffffff",
+      image: "/bobs-cafe.png"
+    },
+    {
+      title: "VIRA Constructora",
+      category: "INMOBILIARIA",
+      subcategories: ["WEB PRESENCIAL", "CATÁLOGO"],
+      color: "#00F5D4",
+      image: "/viraconstructora.png"
+    },
+    {
+      title: "Tejiendo con Andy",
       category: "E-COMMERCE",
-      subcategories: ["TIENDA ONLINE", "CATÁLOGO"],
+      subcategories: ["CURSOS ONLINE", "MERCADOPAGO"],
       color: "#ffffff",
-      image: "https://via.placeholder.com/400x300/111111/ffffff?text=ECOMMERCE"
+      image: "/tejiendoconandy.jpeg"
     },
     {
-      title: "Estudio Jurídico Paz",
-      category: "LEGAL",
-      subcategories: ["WEB PRESENCIAL", "CONTACTO"],
+      title: "Cursos de Pilates",
+      category: "E-COMMERCE",
+      subcategories: ["SUSCRIPCIONES", "MERCADOPAGO"],
       color: "#00F5D4",
-      image: "https://via.placeholder.com/400x300/0a0a0a/00F5D4?text=LEGAL"
+      image: "/og-image.png"
     },
     {
-      title: "Academia Fitness BA",
-      category: "DEPORTE",
-      subcategories: ["PLATAFORMA", "TURNOS"],
+      title: "Criptomix",
+      category: "FINTECH",
+      subcategories: ["BLOCKCHAIN", "TRADING"],
       color: "#ffffff",
-      image: "https://via.placeholder.com/400x300/111111/ffffff?text=FITNESS"
-    },
-    {
-      title: "Distribuidora El Sur",
-      category: "PYME",
-      subcategories: ["CATÁLOGO", "PEDIDOS"],
-      color: "#00F5D4",
-      image: "https://via.placeholder.com/400x300/0a0a0a/00F5D4?text=PYME"
+      image: "/criptomix.png"
     }
   ]
 

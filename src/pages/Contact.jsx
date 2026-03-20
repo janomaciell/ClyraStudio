@@ -30,7 +30,7 @@ const Contact = () => {
     },
     {
       question: "¿Cuánto tarda en estar lista mi web?",
-      answer: "Una web presencial o landing la entregamos en 7 días. Un sitio multi-sección con CMS en 10-14 días. Las web apps a medida dependen del alcance — lo definimos en la primera reunión."
+      answer: "De 15 a 90 días según la complejidad del proyecto. Plazo acordado antes de arrancar, sin excusas ni demoras indefinidas."
     },
     {
       question: "¿Los precios son en pesos o en dólares?",

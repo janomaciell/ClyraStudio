@@ -46,28 +46,27 @@ const About = () => {
     {
       name: "Jano Maciel",
       role: "Founder & Developer",
-      description: "Full-stack developer especializado en React y Django. Más de 5 proyectos entregados para pymes y profesionales en Argentina.",
-      image: "https://via.placeholder.com/300x300/0a0a0a/00F5D4?text=JM"
+      description: "Full-stack developer especializado en React y Django. Más de 6 proyectos entregados para pymes, profesionales y startups en Argentina.",
+      image: "/janomaciel.png"
     },
     {
-      name: "Diseño",
-      role: "UI/UX",
-      description: "Cada proyecto pasa por un proceso de diseño centrado en el usuario antes de escribir una línea de código.",
-      image: "https://via.placeholder.com/300x300/111111/F2F2F0?text=UX"
+      name: "Mateo Guidi",
+      role: "Diseñador Gráfico",
+      description: "Diseñador gráfico profesional especializado en identidad de marca, UX/UI y experiencias visuales que comunican y convierten.",
+      image: "https://via.placeholder.com/300x300/111111/F2F2F0?text=MG"
     },
     {
-      name: "Desarrollo",
-      role: "Frontend & Backend",
-      description: "React + Vite en el frontend, Django REST en el backend. Infraestructura en Vercel, Render y Supabase.",
-      image: "https://via.placeholder.com/300x300/0a0a0a/00F5D4?text=DEV"
+      name: "Felix Arrambide",
+      role: "Ventas & Estrategia",
+      description: "Responsable de nuevos clientes y estrategia comercial. El puente entre lo que el cliente necesita y lo que el estudio construye.",
+      image: "https://via.placeholder.com/300x300/0a0a0a/00F5D4?text=FA"
     }
   ]
-
   const values = [
     {
       title: "ENTREGA",
-      subtitle: "en tiempo real",
-      description: "7 a 14 días desde el primer mensaje hasta el lanzamiento. Sin excusas, sin demoras indefinidas."
+      subtitle: "sin vueltas",
+      description: "De 15 a 90 días según la complejidad del proyecto. Plazo acordado antes de arrancar, sin excusas ni demoras indefinidas."
     },
     {
       title: "TRANSPARENCIA",

@@ -113,7 +113,7 @@ const Portfolio = () => {
       title: "Cursos de Pilates",
       category: "ecommerce",
       url: "https://clyra-studio.vercel.app/",
-      image: "/.png",
+      image: "/og-image.png",
       description: "Plataforma de venta de cursos de pilates online. Sistema de suscripciones, pasarela de pago con MercadoPago, base de datos compleja y frontend animado con GSAP.",
       client: "E-learning — Argentina",
       tags: ["React", "Django", "MercadoPago", "GSAP"],
