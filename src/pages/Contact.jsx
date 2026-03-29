@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import emailjs from '@emailjs/browser';   // ← NUEVA IMPORTACIÓN
 import './Contact.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,6 +23,7 @@ const Contact = () => {
   const whatsappFloatRef = useRef(null);
   const whatsappThreadRef = useRef(null);
   const contactInfoRef = useRef(null);
+  const emailFormRef = useRef(null);   // ← NUEVO REF para EmailJS
 
   const faqData = [
     {
@@ -46,6 +48,7 @@ const Contact = () => {
     }
   ];
 
+  // Inicialización de GSAP (sin cambios)
   useEffect(() => {
     const ctx = gsap.context(() => {
       const heroTl = gsap.timeline();
@@ -136,20 +139,32 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // ← FUNCIÓN ACTUALIZADA con EmailJS (real)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
+    // Animación del botón (la misma que tenías)
     gsap.to('.submit-btn', {
-      scale: 0.95, duration: 0.1,
+      scale: 0.95,
+      duration: 0.1,
       onComplete: () => gsap.to('.loading-spinner', { rotation: 360, duration: 1, ease: 'none', repeat: -1 })
     });
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,      // ← credencial
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,     // ← credencial
+        emailFormRef.current,                         // ← referencia al <form>
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY       // ← credencial
+      );
+
+      // ÉXITO → mismo comportamiento visual que tenías
       setIsSuccess(true);
       gsap.to('.form-container', {
-        opacity: 0, y: -20, duration: 0.5,
+        opacity: 0,
+        y: -20,
+        duration: 0.5,
         onComplete: () => {
           gsap.fromTo('.success-message',
             { opacity: 0, scale: 0.8, y: 20 },
@@ -157,13 +172,16 @@ const Contact = () => {
           );
         }
       });
+
       setTimeout(() => {
         setFormData({ name: '', email: '', message: '', service: '' });
         setIsSuccess(false);
         gsap.to('.form-container', { opacity: 1, y: 0, duration: 0.5 });
       }, 3000);
+
     } catch (err) {
-      console.error('Error:', err);
+      console.error('Error al enviar el formulario con EmailJS:', err);
+      // Podés agregar un estado de error si querés mostrar mensaje al usuario
     } finally {
       setIsLoading(false);
     }
@@ -190,7 +208,7 @@ const Contact = () => {
   return (
     <div className="contact-page">
 
-      {/* WhatsApp flotante */}
+      {/* WhatsApp flotante (sin cambios) */}
       <div className="whatsapp-floating" ref={whatsappFloatRef}>
         <a href="https://wa.me/2267405599" target="_blank" rel="noopener noreferrer" className="whatsapp-float-btn">
           <div className="whatsapp-pulse"></div>
@@ -205,7 +223,7 @@ const Contact = () => {
         </a>
       </div>
 
-      {/* Hero */}
+      {/* Hero (sin cambios) */}
       <section className="hero-section" ref={heroRef}>
         <div className="hero-container">
           <div className="hero-badge">→</div>
@@ -220,7 +238,7 @@ const Contact = () => {
       <section className="main-section">
         <div className="content-grid">
 
-          {/* FAQ */}
+          {/* FAQ (sin cambios) */}
           <div className="faq-section" ref={faqRef}>
             <div className="section-header">
               <h2 className="section-title accent-text">PREGUNTAS FRECUENTES</h2>
@@ -254,19 +272,43 @@ const Contact = () => {
                     <h3>Contanos tu proyecto</h3>
                     <p>Te respondemos en menos de 24hs</p>
                   </div>
-                  <form className="contact-form" onSubmit={handleSubmit}>
+                  {/* ← AQUÍ AGREGAMOS EL REF */}
+                  <form 
+                    ref={emailFormRef}
+                    className="contact-form" 
+                    onSubmit={handleSubmit}
+                  >
                     <div className="form-group">
-                      <input type="text" name="name" value={formData.name} onChange={handleInputChange}
-                        placeholder="Nombre" className="form-input" required />
+                      <input 
+                        type="text" 
+                        name="name" 
+                        value={formData.name} 
+                        onChange={handleInputChange}
+                        placeholder="Nombre" 
+                        className="form-input" 
+                        required 
+                      />
                     </div>
                     <div className="form-group">
-                      <input type="email" name="email" value={formData.email} onChange={handleInputChange}
-                        placeholder="Email" className="form-input" required />
+                      <input 
+                        type="email" 
+                        name="email" 
+                        value={formData.email} 
+                        onChange={handleInputChange}
+                        placeholder="Email" 
+                        className="form-input" 
+                        required 
+                      />
                       <div className="email-arrow">→</div>
                     </div>
                     <div className="form-group">
-                      <select name="service" value={formData.service} onChange={handleInputChange}
-                        className="form-input form-select" required>
+                      <select 
+                        name="service" 
+                        value={formData.service} 
+                        onChange={handleInputChange}
+                        className="form-input form-select" 
+                        required
+                      >
                         <option value="">¿Qué necesitás?</option>
                         <option value="presencial">Web presencial</option>
                         <option value="ecommerce">E-commerce</option>
@@ -277,9 +319,15 @@ const Contact = () => {
                       </select>
                     </div>
                     <div className="form-group">
-                      <textarea name="message" rows="4" value={formData.message} onChange={handleInputChange}
+                      <textarea 
+                        name="message" 
+                        rows="4" 
+                        value={formData.message} 
+                        onChange={handleInputChange}
                         placeholder="Contanos sobre tu proyecto, objetivos y tiempos..."
-                        className="form-input form-textarea" required></textarea>
+                        className="form-input form-textarea" 
+                        required
+                      ></textarea>
                     </div>
                     <button type="submit" className="submit-btn" disabled={isLoading}>
                       <div className="submit-btn-bg"></div>
@@ -320,7 +368,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Redes */}
+      {/* Redes (sin cambios) */}
       <section className="social-networks-section">
         <div className="container">
           <div className="social-networks">
