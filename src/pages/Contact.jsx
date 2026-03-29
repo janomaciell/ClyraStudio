@@ -354,7 +354,7 @@ const Contact = () => {
               <h3 className="contact-title">Contacto directo</h3>
               <div className="contact-info">
                 <p className="contact-address">Buenos Aires, Argentina</p>
-                <a href="mailto:hola@clyra.studio" className="contact-email">hola@clyra.studio</a>
+                <a href="mailto:clyra.studiodigital@gmail.com" className="contact-email">clyra.studiodigital@gmail.com</a>
                 <div className="contact-whatsapp">
                   <a href="https://wa.me/2267405599?text=Hola%20Clyra%2C%20me%20interesa%20hablar%20sobre%20mi%20proyecto"
                     target="_blank" rel="noopener noreferrer" className="whatsapp-contact-btn">
@@ -374,17 +374,14 @@ const Contact = () => {
           <div className="social-networks">
             <h3 className="social-networks-title">Seguinos</h3>
             <div className="social-grid">
-              <a href="https://instagram.com/clyra.studio" className="social-item instagram">
+              <a href="https://instagram.com/clyrastudio__" className="social-item instagram">
                 <span className="social-name">Instagram</span>
-                <span className="social-username">@clyra.studio</span>
+                <span className="social-username">@clyrastudio__</span>
               </a>
-              <a href="https://linkedin.com/company/clyra" className="social-item linkedin">
-                <span className="social-name">LinkedIn</span>
-                <span className="social-username">Clyra Studio</span>
-              </a>
-              <a href="https://github.com/clyra-studio" className="social-item github">
+
+              <a href="https://github.com/janomaciell" className="social-item github">
                 <span className="social-name">GitHub</span>
-                <span className="social-username">clyra-studio</span>
+                <span className="social-username">janomaciell</span>
               </a>
             </div>
           </div>
