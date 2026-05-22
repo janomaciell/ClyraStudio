@@ -511,8 +511,9 @@
    }
    
    .social-grid {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
      gap: 1rem;
    }
    
@@ -565,7 +566,6 @@
      .hero-title { font-size: clamp(2rem, 6vw, 3.5rem); }
      .main-section { padding: 3rem 0; }
      .form-container { padding: 1.75rem; }
-     .social-grid { grid-template-columns: 1fr; }
      .social-networks { padding: 2rem; }
    }
    

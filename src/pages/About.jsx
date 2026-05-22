@@ -40,33 +40,26 @@ const About = () => {
     })
   }, [])
 
-  // Solo vos — lo presentamos como "el equipo detrás de Clyra"
-  // pero con framing de studio boutique
+  // Jano (Programación) y Felix (Ventas & Prototipos)
   const teamMembers = [
     {
       name: "Jano Maciel",
       role: "Founder & Developer",
-      description: "Full-stack developer especializado en React y Django. Más de 6 proyectos entregados para pymes, profesionales y startups en Argentina.",
+      description: "Programador experto en el rubro, especializado en el desarrollo de sistemas completos y páginas web de alto rendimiento.",
       image: "/janomaciel.png"
     },
     {
-      name: "Mateo Guidi",
-      role: "Diseñador Gráfico",
-      description: "Diseñador gráfico profesional especializado en identidad de marca, UX/UI y experiencias visuales que comunican y convierten.",
-      image: "https://via.placeholder.com/300x300/111111/F2F2F0?text=MG"
-    },
-    {
       name: "Felix Arrambide",
-      role: "Ventas & Estrategia",
-      description: "Responsable de nuevos clientes y estrategia comercial. El puente entre lo que el cliente necesita y lo que el estudio construye.",
-      image: "https://via.placeholder.com/300x300/0a0a0a/00F5D4?text=FA"
+      role: "Seller & Prototipos",
+      description: "Encargado de la atención al cliente, presupuestación y el armado de prototipos iniciales. El puente entre lo que necesitás y lo que el estudio construye.",
+      image: "/felix.png"
     }
   ]
   const values = [
     {
       title: "ENTREGA",
       subtitle: "sin vueltas",
-      description: "De 15 a 90 días según la complejidad del proyecto. Plazo acordado antes de arrancar, sin excusas ni demoras indefinidas."
+      description: "De 8 a 45 días según la complejidad del proyecto. Plazo acordado antes de arrancar, sin excusas ni demoras indefinidas."
     },
     {
       title: "TRANSPARENCIA",

@@ -160,11 +160,11 @@ const Home = () => {
       image: "/tejiendoconandy.jpeg"
     },
     {
-      title: "Cursos de Pilates",
+      title: "Pilates Online",
       category: "E-COMMERCE",
-      subcategories: ["SUSCRIPCIONES", "MERCADOPAGO"],
+      subcategories: ["CLASES ONLINE", "MERCADOPAGO"],
       color: "#00F5D4",
-      image: "/og-image.png"
+      image: "/pilatesonline.png"
     },
     {
       title: "Criptomix",
@@ -172,6 +172,20 @@ const Home = () => {
       subcategories: ["BLOCKCHAIN", "TRADING"],
       color: "#ffffff",
       image: "/criptomix.png"
+    },
+    {
+      title: "Estudio Levinton",
+      category: "ARQUITECTURA",
+      subcategories: ["WEB PRESENCIAL", "VITE", "REACT JS"],
+      color: "#00F5D4",
+      image: "/estudiolevinton.png"
+    },
+    {
+      title: "María José Mentana",
+      category: "SITIO PROFESIONAL",
+      subcategories: ["WEB PRESENCIAL", "VITE", "REACT JS"],
+      color: "#ffffff",
+      image: "/mariajosementana.png"
     }
   ]
 

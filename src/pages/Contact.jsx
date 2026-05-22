@@ -374,12 +374,12 @@ const Contact = () => {
           <div className="social-networks">
             <h3 className="social-networks-title">Seguinos</h3>
             <div className="social-grid">
-              <a href="https://instagram.com/clyrastudio__" className="social-item instagram">
+              <a href="https://instagram.com/clyrastudio__" className="social-item instagram" target="_blank" rel="noopener noreferrer">
                 <span className="social-name">Instagram</span>
                 <span className="social-username">@clyrastudio__</span>
               </a>
 
-              <a href="https://github.com/janomaciell" className="social-item github">
+              <a href="https://github.com/janomaciell" className="social-item github" target="_blank" rel="noopener noreferrer">
                 <span className="social-name">GitHub</span>
                 <span className="social-username">janomaciell</span>
               </a>

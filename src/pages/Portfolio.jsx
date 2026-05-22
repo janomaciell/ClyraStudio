@@ -110,12 +110,12 @@ const Portfolio = () => {
     },
     {
       id: 5,
-      title: "Cursos de Pilates",
+      title: "Pilates Online",
       category: "ecommerce",
       url: "https://clyra-studio.vercel.app/",
-      image: "/og-image.png",
-      description: "Plataforma de venta de cursos de pilates online. Sistema de suscripciones, pasarela de pago con MercadoPago, base de datos compleja y frontend animado con GSAP.",
-      client: "E-learning — Argentina",
+      image: "/pilatesonline.png",
+      description: "Plataforma de venta de clases de pilates online. Sistema de suscripciones, pasarela de pago con MercadoPago, base de datos compleja y frontend animado con GSAP.",
+      client: "Plataforma Fitness — Argentina",
       tags: ["React", "Django", "MercadoPago", "GSAP"],
       metric: "Sistema de suscripciones"
     },
@@ -129,6 +129,28 @@ const Portfolio = () => {
       client: "Fintech — Argentina",
       tags: ["React", "Django", "Blockchain", "Stripe", "MercadoPago"],
       metric: "4 pasarelas de pago integradas"
+    },
+    {
+      id: 7,
+      title: "Estudio Levinton",
+      category: "presencial",
+      url: "#",
+      image: "/estudiolevinton.png",
+      description: "Desarrollo frontend exclusivo para el prestigioso estudio de arquitectura Levinton, implementado con React JS y Vite para lograr una interfaz de alta fidelidad, fluida y totalmente adaptable.",
+      client: "Estudio de Arquitectura — Argentina",
+      tags: ["React", "Vite", "Frontend", "Diseño"],
+      metric: "Frontend de alta fidelidad"
+    },
+    {
+      id: 8,
+      title: "María José Mentana",
+      category: "presencial",
+      url: "#",
+      image: "/mariajosementana.png",
+      description: "Desarrollo frontend a medida para el sitio web de la cantante María José Mentana. Construido con React JS y Vite, enfocado en destacar su trayectoria artística con un diseño moderno y minimalista.",
+      client: "Sitio Profesional — Argentina",
+      tags: ["React", "Vite", "Frontend", "Diseño"],
+      metric: "Diseño premium y fluido"
     }
   ]
 
